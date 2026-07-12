@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard - RZFARM CMS</title>
+  <link rel="stylesheet" href="css/admin.css">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Simple Login -->
+  <div class="login-overlay" id="loginOverlay">
+    <div class="login-card form-group">
+      <h2>Admin Login</h2>
+      <input type="password" id="adminPassword" placeholder="Masukkan Password">
+      <button type="button" onclick="checkLogin()">Masuk</button>
+    </div>
+  </div>
+
+  <div class="admin-layout">
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <div class="sidebar__logo">
+        <div class="logo-icon">RZ</div>
+        <span>Admin Panel</span>
+      </div>
+      
+      <nav class="sidebar__nav">
+        <button class="nav-item is-active" data-target="tab-hero">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+          Hero Section
+        </button>
+        <button class="nav-item" data-target="tab-about">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+          Tentang Kami
+        </button>
+        <button class="nav-item" data-target="tab-contact">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+          Kontak & WhatsApp
+        </button>
+        <button class="nav-item" data-target="tab-product">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+          Daftar Produk
+        </button>
+        <button class="nav-item" data-target="tab-gallery">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+          Galeri Foto
+        </button>
+      </nav>
+
+      <div class="sidebar__actions" style="margin-top: auto; display: flex; flex-direction: column; gap: 12px;">
+        <button type="button" class="btn-logout" onclick="window.location.reload()" style="width:100%;">Log Out</button>
+        <a href="index.html" target="_blank" class="back-link btn-back" style="justify-content: center; background: rgba(255,255,255,0.05);">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"></path><polyline points="10 17 15 12 10 7"></polyline><line x1="15" y1="12" x2="3" y2="12"></line></svg>
+          Lihat Website (Blank)
+        </a>
+      </div>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+      <header class="header">
+        <div>
+          <h1>Content Management</h1>
+          <p>Ubah konten landing page secara real-time tanpa perlu coding.</p>
+        </div>
+      </header>
+
+      <form id="cmsForm" class="cms-form">
+        
+        <!-- TAB: HERO -->
+        <div class="tab-content is-active" id="tab-hero">
+          <div class="card">
+            <h2>Pengaturan Hero Section</h2>
+            <div class="form-group">
+              <label>Judul Utama (Title)</label>
+              <input type="text" id="hero_title" placeholder="Contoh: Peternakan Modern & Terpercaya">
+              <span class="help-text">Gunakan tag &lt;br&gt; untuk membuat baris baru.</span>
+            </div>
+            <div class="form-group">
+              <label>Deskripsi (Subtitle)</label>
+              <textarea id="hero_desc" rows="3" placeholder="Menyediakan hewan ternak unggulan..."></textarea>
+            </div>
+            <div class="form-group">
+              <label>Teks Tombol Aksi</label>
+              <input type="text" id="hero_btn" placeholder="Jelajahi Produk">
+            </div>
+          </div>
+        </div>
+
+        <!-- TAB: ABOUT -->
+        <div class="tab-content" id="tab-about">
+          <div class="card">
+            <h2>Pengaturan Tentang Kami</h2>
+            <div class="form-group">
+              <label>Gambar Tentang Kami</label>
+              <div class="input-group">
+                <input type="text" id="about_img" placeholder="assets/nama-gambar.jpg" style="flex:1;">
+                <button type="button" class="btn-upload" onclick="document.getElementById('upload_about').click()">Pilih Foto</button>
+                <input type="file" id="upload_about" accept="image/*" style="display:none;" onchange="handleImageUpload(event, 'about_img')">
+              </div>
+              <span class="help-text">Gunakan URL atau klik Pilih Foto untuk mengunggah otomatis.</span>
+            </div>
+            <div class="form-group">
+              <label>Deskripsi Pendek</label>
+              <textarea id="about_desc" rows="4" placeholder="Kisah awal mula RZFARM didirikan..."></textarea>
+            </div>
+          </div>
+        </div>
+
+        <!-- TAB: CONTACT -->
+        <div class="tab-content" id="tab-contact">
+          <div class="card">
+            <h2>Informasi Kontak</h2>
+            <div class="form-group">
+              <label>Nomor WhatsApp</label>
+              <input type="text" id="contact_wa" placeholder="6281200000000">
+              <span class="help-text">Gunakan format 62 tanpa spasi atau tanda plus (+). Contoh: 628123456789.</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- TAB: PRODUCT -->
+        <div class="tab-content" id="tab-product">
+          <div class="card">
+            <h2>Pengaturan Daftar Produk (6 Item)</h2>
+            <div id="product-fields-container"></div>
+          </div>
+        </div>
+
+        <!-- TAB: GALLERY -->
+        <div class="tab-content" id="tab-gallery">
+          <div class="card">
+            <h2>Pengaturan Galeri Foto (6 Item)</h2>
+            <div id="gallery-fields-container"></div>
+          </div>
+        </div>
+        <!-- SAVE BAR -->
+        <div class="form-actions">
+          <button type="submit" class="btn-save">Simpan Perubahan</button>
+          <span class="save-status" id="saveStatus">Data berhasil disimpan!</span>
+        </div>
+      </form>
+
+    </main>
+  </div>
+
+  <script src="js/admin.js"></script>
+</body>
+</html>
