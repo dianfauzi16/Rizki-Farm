@@ -1080,3 +1080,193 @@ h1, h2, h3, h4 {
   animation: floatBtn 3s ease-in-out infinite;
 }
 @keyframes floatBtn { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
+
+/* ---------- 20. PARTNERS / MITRA ---------- */
+.partners__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-md);
+}
+.partner-item {
+  background: var(--color-white);
+  border: 1px solid var(--color-light-gray-2);
+  border-radius: var(--radius-md);
+  padding: var(--space-lg);
+  text-align: center;
+  transition: transform var(--t-med), box-shadow var(--t-med), border-color var(--t-med);
+  position: relative;
+  overflow: hidden;
+}
+.partner-item::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0;
+  width: 100%; height: 3px;
+  background: var(--gradient-gold);
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform var(--t-med);
+}
+.partner-item:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-med);
+  border-color: transparent;
+}
+.partner-item:hover::after { transform: scaleX(1); }
+.partner-item__icon {
+  width: 64px; height: 64px;
+  border-radius: 50%;
+  background: rgba(31,94,59,0.08);
+  color: var(--color-primary);
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto var(--space-md);
+  transition: background var(--t-med), color var(--t-med), transform var(--t-med);
+}
+.partner-item:hover .partner-item__icon {
+  background: var(--gradient-primary);
+  color: var(--color-white);
+  transform: scale(1.08);
+}
+.partner-item__name {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--color-primary-dark);
+  margin-bottom: 0.35rem;
+}
+.partner-item__desc {
+  font-size: 0.85rem;
+  color: var(--color-charcoal-soft);
+}
+
+/* ---------- 21. CONTACT / FORM ---------- */
+.contact {
+  background: var(--color-white);
+}
+.contact__grid {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: var(--space-2xl);
+  align-items: start;
+}
+.contact__info {
+  padding-top: var(--space-md);
+}
+.contact__details {
+  margin-top: var(--space-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+.contact__detail-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.9rem;
+}
+.contact__detail-icon {
+  width: 44px; height: 44px;
+  border-radius: var(--radius-sm);
+  background: rgba(31,94,59,0.08);
+  color: var(--color-primary);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.contact__detail-item strong {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  color: var(--color-primary-dark);
+  margin-bottom: 0.15rem;
+}
+.contact__detail-item span {
+  font-size: 0.88rem;
+  color: var(--color-charcoal-soft);
+}
+.contact__wa-btn {
+  margin-top: var(--space-lg);
+}
+
+.contact__form-wrap {
+  position: relative;
+}
+.contact__form {
+  background: var(--color-white);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl);
+  box-shadow: var(--shadow-med);
+  border: 1px solid rgba(31,94,59,0.06);
+}
+.contact__form-title {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--color-primary-dark);
+  margin-bottom: 0.3rem;
+}
+.contact__form-subtitle {
+  font-size: 0.88rem;
+  color: var(--color-charcoal-soft);
+  margin-bottom: var(--space-lg);
+}
+
+.form-group {
+  margin-bottom: var(--space-md);
+}
+.form-label {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-primary-dark);
+  margin-bottom: 0.45rem;
+}
+.form-input {
+  width: 100%;
+  padding: 0.85rem 1.1rem;
+  border: 1.5px solid var(--color-light-gray-2);
+  border-radius: var(--radius-sm);
+  font-size: 0.95rem;
+  color: var(--color-charcoal);
+  background: var(--color-light-gray);
+  transition: border-color var(--t-fast), box-shadow var(--t-fast), background var(--t-fast);
+  outline: none;
+}
+.form-input::placeholder {
+  color: #A0A09A;
+}
+.form-input:focus {
+  border-color: var(--color-primary-light);
+  background: var(--color-white);
+  box-shadow: 0 0 0 3px rgba(31,94,59,0.1);
+}
+.form-select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1.5L6 6.5L11 1.5' stroke='%234A4A45' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  padding-right: 2.8rem;
+  cursor: pointer;
+}
+.form-textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+.contact__submit-btn {
+  width: 100%;
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  margin-top: var(--space-xs);
+}
+.contact__form-note {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: var(--space-md);
+  font-size: 0.78rem;
+  color: var(--color-charcoal-soft);
+}
+.contact__form-note svg {
+  color: var(--color-secondary);
+  flex-shrink: 0;
+}
+

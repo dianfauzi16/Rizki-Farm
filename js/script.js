@@ -337,4 +337,35 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  /* ---------- 18. CONTACT FORM → WHATSAPP ---------- */
+  const contactForm = document.getElementById('contactForm');
+  if (contactForm) {
+    contactForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const name = document.getElementById('contactName').value.trim();
+      const phone = document.getElementById('contactPhone').value.trim();
+      const need = document.getElementById('contactNeed').value;
+      const message = document.getElementById('contactMessage').value.trim();
+
+      if (!name || !phone || !need) {
+        alert('Mohon lengkapi Nama, No. WhatsApp, dan Jenis Kebutuhan.');
+        return;
+      }
+
+      let waMessage = `Halo RZFARM! 👋\n\n`;
+      waMessage += `Saya ingin konsultasi:\n`;
+      waMessage += `• *Nama:* ${name}\n`;
+      waMessage += `• *No. WA:* ${phone}\n`;
+      waMessage += `• *Kebutuhan:* ${need}\n`;
+      if (message) {
+        waMessage += `• *Pesan:* ${message}\n`;
+      }
+      waMessage += `\nTerima kasih! 🐐`;
+
+      const waUrl = `https://wa.me/6281200000000?text=${encodeURIComponent(waMessage)}`;
+      window.open(waUrl, '_blank');
+    });
+  }
+
 });
